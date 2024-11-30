@@ -17,3 +17,5 @@ Encoding: UTF-8
 Suggests: 
     gitcreds,
     usethis
+URL: https://github.com/jviuff/AdvancedR3
+BugReports: https://github.com/jviuff/AdvancedR3/issues
