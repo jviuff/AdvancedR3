@@ -21,3 +21,5 @@ Suggests:
     usethis
 URL: https://github.com/jviuff/AdvancedR3
 BugReports: https://github.com/jviuff/AdvancedR3/issues
+Depends: 
+    tidyverse
