@@ -28,3 +28,7 @@ lipidomics |>
     ~ round(.x, 1)
   ))
 ```
+
+```{r}
+descriptive_stats(lipidomics, metabolite, value)
+```
