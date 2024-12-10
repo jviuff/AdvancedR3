@@ -14,3 +14,7 @@ format: html
 # Code chunk
 ```
 
+## Poorly formatted markdown
+
+-   list item 1
+-   list item 2
