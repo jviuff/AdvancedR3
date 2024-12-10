@@ -30,5 +30,5 @@ lipidomics |>
 ```
 
 ```{r}
-descriptive_stats(lipidomics, metabolite, value)
+descriptive_stats(lipidomics, class, value)
 ```

@@ -8,15 +8,15 @@
 descriptive_stats <- function(data, groupvar, valuevar) {
     data |>
         dplyr::group_by({{ groupvar }}) |>
-        dplyr::summarise(across(
+        dplyr::summarise(dplyr::across(
             {{ valuevar }},
             list(
                 mean = mean,
                 sd = sd
             )
         )) |>
-        dplyr::mutate(across(
-            where(is.numeric),
+        dplyr::mutate(dplyr::across(
+            tidyselect::where(is.numeric),
             ~ round(.x, 1)
         ))
 }
