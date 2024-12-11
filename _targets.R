@@ -62,5 +62,9 @@ list(
   tar_target(
     name = df_stats_by_metabolite,
     command = descriptive_stats(lipidomics, metabolite, value)
+  ),
+  tar_target(
+      name = plot_by_metabolite,
+      command = metabolite_distribution_plot(lipidomics, metabolite)
   )
 )
