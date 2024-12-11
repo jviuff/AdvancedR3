@@ -26,7 +26,7 @@ descriptive_stats <- function(data, groupvar, valuevar) {
 #' @param group Facets plot by this group
 #'
 #' @return Returns a ggplot histogram
-metabolite_distribution_plot  <- function(data, group){
+plot_distribution  <- function(data, group){
     ggplot2::ggplot(data, ggplot2::aes(x = value)) +
         ggplot2::geom_histogram() +
         ggplot2::facet_wrap(ggplot2::vars({{group}}), scales = "free")
