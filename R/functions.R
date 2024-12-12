@@ -143,3 +143,20 @@ calculate_estimates <- function(data) {
     dplyr::distinct(metabolite, term) |>
     dplyr::right_join(df_estiamtes, by = "term")
 }
+
+#' Plotting estimates
+#'
+#' @param results a tibble of our model estimates
+#'
+#' @return a ggplot
+plot_estimates <- function(results) {
+  results |>
+    ggplot2::ggplot(ggplot2::aes(
+      x = estimate,
+      y = metabolite,
+      xmin = estimate - std.error,
+      xmax = estimate + std.error
+    )) +
+    ggplot2::geom_pointrange() +
+    ggplot2::coord_fixed(xlim = c(0, 5))
+}
