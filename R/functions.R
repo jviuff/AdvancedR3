@@ -122,3 +122,15 @@ generate_model_results <- function(data) {
     parsnip::fit(data) |>
     tidy_model_output()
 }
+
+#' Splits the lipidomics dataset by metabolite and estimate OR
+#'
+#' @param data Input data
+#'
+#' @return returns a tibble with model estimates for each metabolite
+calculate_estimates <- function(data) {
+  split_by_metabolite(data) |>
+    purrr::map(generate_model_results) |>
+    purrr::list_rbind() |>
+    dplyr::filter(stringr::str_detect(term, "metabolite_"))
+}
