@@ -40,5 +40,8 @@ lipidomics_wide <-
 ## Running multiple models
 
 ```{r}
-calculate_estimates(lipidomics)
+model_estimates <- lipidomics |> 
+    calculate_estimates()
+
+model_estimates
 ```

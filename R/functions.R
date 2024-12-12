@@ -129,8 +129,17 @@ generate_model_results <- function(data) {
 #'
 #' @return returns a tibble with model estimates for each metabolite
 calculate_estimates <- function(data) {
-  split_by_metabolite(data) |>
+  df_estiamtes <-
+    split_by_metabolite(data) |>
     purrr::map(generate_model_results) |>
     purrr::list_rbind() |>
     dplyr::filter(stringr::str_detect(term, "metabolite_"))
+
+  data |>
+    dplyr::select(metabolite) |>
+    dplyr::mutate(term = metabolite) |>
+    column_values_to_snake_case(term) |>
+    dplyr::mutate(term = stringr::str_c("metabolite_", term)) |>
+    dplyr::distinct(metabolite, term) |>
+    dplyr::right_join(df_estiamtes, by = "term")
 }
